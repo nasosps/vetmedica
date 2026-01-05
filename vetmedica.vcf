@@ -1,0 +1,14 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:VET MEDICA CRETE
+ORG:VET MEDICA CRETE
+TEL;TYPE=WORK,VOICE;PREF=1:2810318880
+TEL;TYPE=WORK,VOICE:2810761313
+TEL;TYPE=CELL,VOICE:6932471580
+ADR;TYPE=WORK,PREF:;;Στρυμώνος 6;Ηράκλειο;;71304;Ελλάδα
+ADR;TYPE=WORK:;;Κοκκίνη Χάνι;Ηράκλειο;;71500;Ελλάδα
+EMAIL:vetmedicainfo@gmail.com
+URL:https://www.facebook.com/VetMedicaCrete
+URL:https://www.instagram.com/vet_medica_crete/
+NOTE:SOS: 6932471580. Κεντρικό (Στρυμώνος 6): 2810 318880 (Δευ-Παρ 09-21, Σαβ 09-15). Κοκκίνη Χάνι: 2810 761313 (Δευ/Τρι/Πεμ/Παρ 09:30-14:00 & 17:30-20:30, Τετ/Σαβ 09:30-14:00).
+END:VCARD

@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VET MEDICA CRETE - Κτηνιατρικό Κέντρο</title>
+
+<style>
+:root{
+  /* Χρώματα */
+  --primary: #0d6efd; 
+  --secondary: #0a58ca;
+  --accent-color: #0dcaf0; 
+
+  --bg1:#0b0c12;
+  --bg2:#121420;
+
+  --text:#ffffff;
+  --muted:rgba(255,255,255,.8);
+
+  --border:rgba(255,255,255,.15);
+
+  --shadow:0 22px 60px rgba(0,0,0,.6);
+  --radius:24px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  color:var(--text);
+  font-weight: 500;
+  
+  text-shadow: 2px 2px 4px #000000;
+
+  /* Διόρθωση για ενιαίο φόντο */
+  background:
+    radial-gradient(700px 420px at 16% 18%, rgba(13, 110, 253, .25), transparent 60%),
+    radial-gradient(700px 420px at 84% 18%, rgba(13, 202, 240, .20), transparent 60%),
+    linear-gradient(135deg,var(--bg1),var(--bg2));
+    
+  background-attachment: fixed; /* Κλειδώνει το φόντο */
+  background-size: cover;       /* Καλύπτει όλη την οθόνη */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Watermark logo */
+.watermark{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background:url("logo.png") center / min(860px,92vw) no-repeat;
+  opacity:.12;
+  filter:grayscale(100%);
+  z-index: 0; /* Πίσω από όλα */
+}
+
+.wrap{
+  min-height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px 12px;
+  position:relative;
+  z-index:1;
+}
+
+.card{
+  width:min(520px,100%);
+  background: rgba(18, 20, 32, 0.92);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(20px); 
+  overflow:hidden;
+  position:relative;
+}
+
+.ribbon{
+  height:9px;
+  background:linear-gradient(90deg, var(--primary), var(--accent-color));
+}
+
+.inner{
+  padding:18px 14px 44px;
+}
+
+.header{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+.logo{
+  width:54px;
+  height:54px;
+  border-radius:16px;
+  background:rgba(255,255,255,.95);
+  border:1px solid rgba(255,255,255,.25);
+  display:grid;
+  place-items:center;
+}
+.logo img{
+  width:85%;
+  height:85%;
+  object-fit:contain;
+}
+
+h1{
+  margin:0;
+  font-size:clamp(18px, 5vw, 24px);
+  line-height:1.2;
+  color: #fff !important;
+  text-shadow: 3px 3px 6px #000;
+}
+
+.subtitle{
+  margin-top:4px;
+  color:var(--muted);
+  font-size:13.5px;
+}
+
+.divider{
+  height:1px;
+  margin:18px 0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);
+}
+
+.section-title {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+    margin-bottom: 10px;
+    margin-left: 4px;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px #000;
+}
+
+.buttons{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.btn{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:12px;
+  min-height:64px;
+  border-radius:18px;
+  text-decoration:none;
+  color:var(--text);
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.15);
+  transition:.12s ease;
+  overflow:hidden;
+}
+
+.btn:hover{
+  transform:translateY(-1px);
+  background:rgba(255,255,255,.10);
+}
+
+.accent{
+  position:absolute;
+  left:0;top:0;bottom:0;
+  width:6px;
+  background:var(--primary);
+}
+
+/* Ειδικό στυλ για πληροφοριακά κουτιά (όχι links) */
+.info-box {
+  background: rgba(255,255,255,0.03);
+  cursor: default;
+}
+.info-box:hover {
+  transform: none;
+  background: rgba(255,255,255,0.03);
+}
+
+.left{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  z-index:1;
+  min-width:0;
+}
+
+.icon-img{
+  width:28px;
+  height:28px;
+  object-fit:contain;
+  filter: drop-shadow(0 2px 3px rgba(0,0,0,0.5));
+}
+
+.label strong{
+  display:block;
+  font-size:14px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  font-weight: 600;
+}
+.label span{
+  font-size:12px;
+  color:var(--muted);
+  font-weight: 400;
+}
+
+.pill{
+  z-index:1;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.26);
+  background:rgba(255,255,255,.10);
+  font-size:11px;
+  white-space:nowrap;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.views{
+  position:absolute;
+  bottom:8px;
+  right:10px;
+  pointer-events:none;
+  z-index: 100;
+}
+.views img{
+  height:16px;
+  opacity:.85;
+  display:block;
+}
+
+footer{
+  margin-top:20px;
+  text-align:center;
+  font-size:12px;
+  color:rgba(247,247,251,.8);
+  text-shadow: 1px 1px 2px #000;
+}
+
+@media (max-width: 480px){
+  .views{ bottom:4px; right:6px; }
+}
+</style>
+</head>
+
+<body>
+<div class="watermark"></div>
+
+<main class="wrap">
+<section class="card">
+  <div class="ribbon"></div>
+
+  <div class="inner">
+    <div class="header">
+      <div class="logo">
+        <img src="logo.png" alt="Vet Medica">
+      </div>
+      <div>
+        <h1>VET MEDICA CRETE</h1>
+        <p class="subtitle">Κτηνιατρικό Κέντρο - Pet Shop</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="buttons">
+
+      <a class="btn" href="tel:+306932471580" style="background:rgba(220, 53, 69, 0.15); border-color:rgba(220, 53, 69, 0.4);">
+        <span class="accent" style="background:#dc3545"></span> 
+        <div class="left">
+          <img src="logo.png" class="icon-img" alt="Emergency">
+          <div class="label">
+            <strong style="color:#ff8fa3">ΕΚΤΑΚΤΗ ΑΝΑΓΚΗ (SOS)</strong>
+            <span>Κάλεσε Τώρα: 693 247 1580</span>
+          </div>
+        </div>
+        <span class="pill" style="background:#dc3545; border:none; color:white;">SOS</span>
+      </a>
+      
+      <div class="section-title">Επικοινωνια</div>
+      
+      <a class="btn" href="tel:+302810318880">
+        <span class="accent" style="background:#2563eb"></span> 
+        <div class="left">
+          <img src="logo.png" class="icon-img" alt="Call">
+          <div class="label">
+            <strong>Κεντρικό (Στρυμώνος)</strong>
+            <span>2810 318880</span>
+          </div>
+        </div>
+        <span class="pill">Κλήση</span>
+      </a>
+
+      <a class="btn" href="tel:+302810761313">
+        <span class="accent" style="background:#2563eb"></span> 
+        <div class="left">
+          <img src="logo.png" class="icon-img" alt="Call">
+          <div class="label">
+            <strong>Κοκκίνη Χάνι</strong>
+            <span>2810 761313</span>
+          </div>
+        </div>
+        <span class="pill">Κλήση</span>
+      </a>
+
+      <a class="btn" href="mailto:vetmedicainfo@gmail.com">
+        <span class="accent" style="background:#ea4335"></span>
+        <div class="left">
+          <img src="logo.png" class="icon-img" alt="Email">
+          <div class="label">
+            <strong>Αποστολή Email</strong>
+            <span>vetmedicainfo@gmail.com</span>
+          </div>
+        </div>
+        <span class="pill">Email</span>
+      </a>
+
+      <a class="btn" href="vetmedica.vcf" download="VetMedica.vcf">
+        <span class="accent" style="background:#6c757d"></span> 
+        <div class="left">
+          <img src="logo.png" class="icon-img" alt="vCard">
+          <div class="label">
+            <strong>Αποθήκευση Επαφής</strong>
+            <span>Λήψη (Όλα τα στοιχεία)</span>
+          </div>
+        </div>
+        <span class="pill">Save</span>
+      </a>
+
+      <div class="divider"></div>
+
+      <div class="section-title">Υπηρεσιες</div>
+      
+      <div class="btn info-box">
+         <span class="accent" style="background:#0dcaf0"></span>
+         <div style="font-size:13px; color:#ddd; line-height:1.6; padding:0 4px;">
+           • Παθολογικό / Χειρουργικό / Ορθοπεδικό<br>
+           • Ακτινολογικό (Ψηφιακό) / Υπέρηχος<br>
+           • Οδοντιατρικό / Μικροβιολογικό<br>
+           • Pet Shop / Τροφές & Φάρμακα<br>
+           • Καλλωπισμός (Grooming) / Νοσηλεία
+         </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section-title">Ωραριο Λειτουργιας</div>
+
+      <div class="btn info-box">
+        <div class="left">
+          <div class="label" style="white-space:normal;">
+            <strong>Κεντρικό (Στρυμώνος)</strong>
+            <span>Δευτ - Παρ: 09:00 - 21:00</span><br>
+            <span>Σάββατο: 09:00 - 15:00</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="btn info-box">
+        <div class="left">
+          <div class="label" style="white-space:normal;">
+            <strong>Κοκκίνη Χάνι</strong>
+            <span>Δευ/Τρι/Πεμ/Παρ: 09:30-14:00 & 17:30-20:30</span><br>
+            <span>Τετ & Σαβ: 09:30 - 14:00</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section-title">Ακολουθηστε μας</div>
+
+      <a class="btn" href="https://www.facebook.com/VetMedicaCrete" target="_blank" rel="noopener">
+        <span class="accent" style="background:#1877F2"></span>
+        <div class="left">
+          <img src="facebook.png" class="icon-img" alt="Facebook">
+          <div class="label">
+            <strong>Facebook</strong>
+            <span>VetMedicaCrete</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="btn" href="https://www.instagram.com/vet_medica_crete/" target="_blank" rel="noopener">
+        <span class="accent" style="background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);"></span>
+        <div class="left">
+          <img src="instagram.png" class="icon-img" alt="Instagram">
+          <div class="label">
+            <strong>Instagram</strong>
+            <span>@vet_medica_crete</span>
+          </div>
+        </div>
+      </a>
+
+      <div class="divider"></div>
+
+      <div class="section-title">Τοποθεσια (Google Maps)</div>
+
+      <a class="btn" href="https://www.google.com/maps/dir/35.3009391,25.1519456/Vet+Medica+-+%CE%9A%CF%84%CE%B7%CE%BD%CE%B9%CE%B1%CF%84%CF%81%CE%B9%CE%BA%CF%8C+%CE%9A%CE%AD%CE%BD%CF%84%CF%81%CE%BF+%CE%9A%26%CE%9C+%CE%9C%CE%B7%CE%BB%CE%B1%CE%B8%CE%B9%CE%B1%CE%BD%CE%AC%CE%BA%CE%B7%CF%82,+%CE%A3%CF%84%CF%81%CF%85%CE%BC%CF%8E%CE%BD%CE%BF%CF%82+6,+%CE%97%CF%81%CE%AC%CE%BA%CE%BB%CE%B5%CE%B9%CE%BF+713+04/@35.3151509,25.1149471,7095m/data=!3m2!1e3!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x149a598d29d92853:0xa55c633288145354!2m2!1d25.1182546!2d35.3293661?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">
+        <span class="accent" style="background:#34A853"></span>
+        <div class="left">
+          <img src="maps.png" class="icon-img" alt="Maps">
+          <div class="label">
+            <strong>Κεντρικό Κατάστημα</strong>
+            <span>Στρυμώνος 6, Ηράκλειο 713 04</span>
+          </div>
+        </div>
+        <span class="pill">Πήγαινέ με</span>
+      </a>
+
+      <a class="btn" href="https://www.google.com/maps/dir//Vet+Medica+%CE%9A%CE%BF%CE%BA%CE%BA%CE%AF%CE%BD%CE%B7+%CE%A7%CE%AC%CE%BD%CE%B9+M+%CE%9C%CE%B7%CE%BB%CE%B1%CE%B8%CE%B9%CE%B1%CE%BD%CE%AC%CE%BA%CE%B7%CF%82,+%CE%A0%CE%B1%CE%BB%CE%B1%CE%B9%CE%AC+%CE%95%CE%9F+%CE%91%CE%B3%CE%AF%CE%BF%CF%85+%CE%9D%CE%B9%CE%BA%CE%BF%CE%BB%CE%AC%CE%BF%CF%85+%CE%97%CF%81%CE%B1%CE%BA%CE%BB%CE%B5%CE%AF%CE%BF%CF%85,+%CE%9A%CE%BF%CE%BA%CE%BA%CE%AF%CE%BD%CE%B7+%CE%A7%CE%AC%CE%BD%CE%B9+715+00/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x149a5dbcdc006019:0xe65f41ef71b778fd?sa=X&ved=1t:57443&ictx=111" target="_blank" rel="noopener">
+        <span class="accent" style="background:#34A853"></span>
+        <div class="left">
+          <img src="maps.png" class="icon-img" alt="Maps">
+          <div class="label">
+            <strong>Κατάστημα Κοκκίνη Χάνι</strong>
+            <span>Κοκκίνη Χάνι, Ηράκλειο 715 00</span>
+          </div>
+        </div>
+        <span class="pill">Πήγαινέ με</span>
+      </a>
+
+      <a class="btn" href="https://search.google.com/local/writereview?placeid=ChIJUyjZKY1ZmhQRVFMUiDJjXKU" target="_blank" rel="noopener">
+        <span class="accent" style="background:#fbbc05"></span>
+        <div class="left">
+          <img src="google_review.png" class="icon-img" alt="Review">
+          <div class="label">
+            <strong>Γράψτε μια κριτική</strong>
+            <span>Google Reviews</span>
+          </div>
+        </div>
+        <span class="pill">Rate Us</span>
+      </a>
+
+    </div>
+
+    <footer>
+      © <span id="y"></span> VET MEDICA CRETE
+    </footer>
+
+    <div class="views">
+      <img id="hitCounter" alt="">
+    </div>
+
+  </div>
+</section>
+</main>
+
+<script>
+document.getElementById("y").textContent = new Date().getFullYear();
+
+(function () {
+  var url = "vet-medica-crete-v1"; 
+
+  document.getElementById("hitCounter").src =
+    "https://hitscounter.dev/api/hit?url=" + url +
+    "&label=&icon=chart&color=%230d6efd&style=flat";
+})();
+</script>
+</body>
+</html>
