@@ -7,7 +7,7 @@
 
 <style>
 :root{
-  /* Χρώματα */
+  /* Χρώματα - Vet Medica Blue Theme */
   --primary: #0d6efd; 
   --secondary: #0a58ca;
   --accent-color: #0dcaf0; 
@@ -15,7 +15,7 @@
   --bg1:#0b0c12;
   --bg2:#121420;
 
-  --text:#ffffff;
+  --text:#ffffff; 
   --muted:rgba(255,255,255,.8);
 
   --border:rgba(255,255,255,.15);
@@ -33,9 +33,10 @@ body{
   color:var(--text);
   font-weight: 500;
   
+  /* Text Shadow */
   text-shadow: 2px 2px 4px #000000;
 
-  /* Ενιαίο φόντο με fixed attachment */
+  /* Ambient Lights - Blue Variations */
   background:
     radial-gradient(700px 420px at 16% 18%, rgba(13, 110, 253, .25), transparent 60%),
     radial-gradient(700px 420px at 84% 18%, rgba(13, 202, 240, .20), transparent 60%),
@@ -47,7 +48,7 @@ body{
   background-repeat: no-repeat;
 }
 
-/* Watermark logo */
+/* Watermark */
 .watermark{
   position:fixed;
   inset:0;
@@ -95,23 +96,24 @@ body{
 }
 
 .logo{
-  width:54px;
-  height:54px;
+  width:64px;
+  height:64px;
   border-radius:16px;
   background:rgba(255,255,255,.95);
   border:1px solid rgba(255,255,255,.25);
   display:grid;
   place-items:center;
+  overflow:hidden;
 }
 .logo img{
   width:85%;
   height:85%;
-  object-fit:contain;
+  object-fit:contain; 
 }
 
 h1{
   margin:0;
-  font-size:clamp(18px, 5vw, 24px);
+  font-size:clamp(18px, 5vw, 22px);
   line-height:1.2;
   color: #fff !important;
   text-shadow: 3px 3px 6px #000;
@@ -175,16 +177,6 @@ h1{
   background:var(--primary);
 }
 
-/* Ειδικό στυλ για πληροφοριακά κουτιά (όχι links) */
-.info-box {
-  background: rgba(255,255,255,0.03);
-  cursor: default;
-}
-.info-box:hover {
-  transform: none;
-  background: rgba(255,255,255,0.03);
-}
-
 .left{
   display:flex;
   align-items:center;
@@ -198,6 +190,13 @@ h1{
   height:28px;
   object-fit:contain;
   filter: drop-shadow(0 2px 3px rgba(0,0,0,0.5));
+}
+/* Αν χρειαστείς SVGs στο μέλλον, τα έχω αφήσει εδώ όπως στο πρότυπο */
+.icon-svg {
+    width: 28px;
+    height: 28px;
+    fill: currentColor;
+    filter: drop-shadow(0 2px 3px rgba(0,0,0,0.5));
 }
 
 .label strong{
@@ -225,7 +224,17 @@ h1{
   box-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
 
-/* Page Views Counter Styling - ΑΚΡΙΒΩΣ ΟΠΩΣ ΣΤΟ ΠΡΟΤΥΠΟ */
+/* Ειδικό στυλ για πληροφοριακά κουτιά (όχι links) */
+.info-box {
+  background: rgba(255,255,255,0.03);
+  cursor: default;
+}
+.info-box:hover {
+  transform: none;
+  background: rgba(255,255,255,0.03);
+}
+
+/* Page Views Counter Styling - ΑΚΡΙΒΩΣ όπως στο αρχείο σου */
 .views-container {
   margin-top: 20px;
   display: flex;
@@ -458,6 +467,7 @@ footer{
 <script>
 document.getElementById("y").textContent = new Date().getFullYear();
 
+/* Η JavaScript είναι ακριβώς όπως στο αρχείο σου */
 (function () {
   var url = encodeURIComponent(window.location.href);
   document.getElementById("hitCounter").src =
