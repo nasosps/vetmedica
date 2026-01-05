@@ -7,12 +7,12 @@
 
 <style>
 :root{
-  /* Χρώματα - Vet Medica Blue Theme */
-  --primary: #0d6efd; 
+  /* Vet Medica Theme - Blue Variations */
+  --primary: #0d6efd;       /* Blue */
   --secondary: #0a58ca;
-  --accent-color: #0dcaf0; 
+  --accent-color: #0dcaf0;  /* Cyan */
 
-  --bg1:#0b0c12;
+  --bg1:#0b0c12;           /* Dark blue-black tint */
   --bg2:#121420;
 
   --text:#ffffff; 
@@ -36,13 +36,13 @@ body{
   /* Text Shadow */
   text-shadow: 2px 2px 4px #000000;
 
-  /* Ambient Lights - Blue Variations */
+  /* Ambient Lights - Blue */
   background:
     radial-gradient(700px 420px at 16% 18%, rgba(13, 110, 253, .25), transparent 60%),
     radial-gradient(700px 420px at 84% 18%, rgba(13, 202, 240, .20), transparent 60%),
     linear-gradient(135deg,var(--bg1),var(--bg2));
     
-  background-attachment: fixed;
+  background-attachment: fixed; /* Κλειδώνει το φόντο όπως ζήτησες */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -53,8 +53,8 @@ body{
   position:fixed;
   inset:0;
   pointer-events:none;
-  background:url("logo.png") center / min(860px,92vw) no-repeat;
-  opacity:.12;
+  background:url("logo.png") center / min(800px,90vw) no-repeat;
+  opacity:.04;
   filter:grayscale(100%);
   z-index: 0;
 }
@@ -106,9 +106,9 @@ body{
   overflow:hidden;
 }
 .logo img{
-  width:85%;
-  height:85%;
-  object-fit:contain; 
+  width:100%;
+  height:100%;
+  object-fit:cover; /* Προσαρμογή για να γεμίζει το κουτί */
 }
 
 h1{
@@ -191,7 +191,6 @@ h1{
   object-fit:contain;
   filter: drop-shadow(0 2px 3px rgba(0,0,0,0.5));
 }
-/* Αν χρειαστείς SVGs στο μέλλον, τα έχω αφήσει εδώ όπως στο πρότυπο */
 .icon-svg {
     width: 28px;
     height: 28px;
@@ -234,7 +233,7 @@ h1{
   background: rgba(255,255,255,0.03);
 }
 
-/* Page Views Counter Styling - ΑΚΡΙΒΩΣ όπως στο αρχείο σου */
+/* Page Views Counter Styling */
 .views-container {
   margin-top: 20px;
   display: flex;
@@ -270,7 +269,7 @@ footer{
   <div class="inner">
     <div class="header">
       <div class="logo">
-        <img src="logo.png" alt="Vet Medica">
+        <img src="logo.png" alt="Logo">
       </div>
       <div>
         <h1>VET MEDICA CRETE</h1>
@@ -281,7 +280,7 @@ footer{
     <div class="divider"></div>
 
     <div class="buttons">
-
+      
       <a class="btn" href="tel:+306932471580" style="background:rgba(220, 53, 69, 0.15); border-color:rgba(220, 53, 69, 0.4);">
         <span class="accent" style="background:#dc3545"></span> 
         <div class="left">
@@ -293,11 +292,11 @@ footer{
         </div>
         <span class="pill" style="background:#dc3545; border:none; color:white;">SOS</span>
       </a>
-      
+
       <div class="section-title">Επικοινωνια</div>
-      
+
       <a class="btn" href="tel:+302810318880">
-        <span class="accent" style="background:#2563eb"></span> 
+        <span class="accent" style="background:#0d6efd"></span> 
         <div class="left">
           <img src="logo.png" class="icon-img" alt="Call">
           <div class="label">
@@ -309,7 +308,7 @@ footer{
       </a>
 
       <a class="btn" href="tel:+302810761313">
-        <span class="accent" style="background:#2563eb"></span> 
+        <span class="accent" style="background:#0d6efd"></span> 
         <div class="left">
           <img src="logo.png" class="icon-img" alt="Call">
           <div class="label">
@@ -338,16 +337,16 @@ footer{
           <img src="logo.png" class="icon-img" alt="vCard">
           <div class="label">
             <strong>Αποθήκευση Επαφής</strong>
-            <span>Λήψη (Όλα τα στοιχεία)</span>
+            <span>Λήψη κάρτας (VCF)</span>
           </div>
         </div>
-        <span class="pill">Save</span>
+        <span class="pill">Λήψη</span>
       </a>
 
       <div class="divider"></div>
 
       <div class="section-title">Υπηρεσιες</div>
-      
+
       <div class="btn info-box">
          <span class="accent" style="background:#0dcaf0"></span>
          <div style="font-size:13px; color:#ddd; line-height:1.6; padding:0 4px;">
@@ -385,33 +384,7 @@ footer{
 
       <div class="divider"></div>
 
-      <div class="section-title">Ακολουθηστε μας</div>
-
-      <a class="btn" href="https://www.facebook.com/VetMedicaCrete" target="_blank" rel="noopener">
-        <span class="accent" style="background:#1877F2"></span>
-        <div class="left">
-          <img src="facebook.png" class="icon-img" alt="Facebook">
-          <div class="label">
-            <strong>Facebook</strong>
-            <span>VetMedicaCrete</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="btn" href="https://www.instagram.com/vet_medica_crete/" target="_blank" rel="noopener">
-        <span class="accent" style="background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);"></span>
-        <div class="left">
-          <img src="instagram.png" class="icon-img" alt="Instagram">
-          <div class="label">
-            <strong>Instagram</strong>
-            <span>@vet_medica_crete</span>
-          </div>
-        </div>
-      </a>
-
-      <div class="divider"></div>
-
-      <div class="section-title">Τοποθεσια (Google Maps)</div>
+      <div class="section-title">Τοποθεσια & Αξιολογηση</div>
 
       <a class="btn" href="https://www.google.com/maps/dir/35.3009391,25.1519456/Vet+Medica+-+%CE%9A%CF%84%CE%B7%CE%BD%CE%B9%CE%B1%CF%84%CF%81%CE%B9%CE%BA%CF%8C+%CE%9A%CE%AD%CE%BD%CF%84%CF%81%CE%BF+%CE%9A%26%CE%9C+%CE%9C%CE%B7%CE%BB%CE%B1%CE%B8%CE%B9%CE%B1%CE%BD%CE%AC%CE%BA%CE%B7%CF%82,+%CE%A3%CF%84%CF%81%CF%85%CE%BC%CF%8E%CE%BD%CE%BF%CF%82+6,+%CE%97%CF%81%CE%AC%CE%BA%CE%BB%CE%B5%CE%B9%CE%BF+713+04/@35.3151509,25.1149471,7095m/data=!3m2!1e3!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x149a598d29d92853:0xa55c633288145354!2m2!1d25.1182546!2d35.3293661?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">
         <span class="accent" style="background:#34A853"></span>
@@ -419,7 +392,7 @@ footer{
           <img src="maps.png" class="icon-img" alt="Maps">
           <div class="label">
             <strong>Κεντρικό Κατάστημα</strong>
-            <span>Στρυμώνος 6, Ηράκλειο 713 04</span>
+            <span>Στρυμώνος 6, Ηράκλειο</span>
           </div>
         </div>
         <span class="pill">Πήγαινέ με</span>
@@ -431,22 +404,50 @@ footer{
           <img src="maps.png" class="icon-img" alt="Maps">
           <div class="label">
             <strong>Κατάστημα Κοκκίνη Χάνι</strong>
-            <span>Κοκκίνη Χάνι, Ηράκλειο 715 00</span>
+            <span>Κοκκίνη Χάνι, Ηράκλειο</span>
           </div>
         </div>
         <span class="pill">Πήγαινέ με</span>
       </a>
 
       <a class="btn" href="https://search.google.com/local/writereview?placeid=ChIJUyjZKY1ZmhQRVFMUiDJjXKU" target="_blank" rel="noopener">
-        <span class="accent" style="background:#fbbc05"></span>
+        <span class="accent" style="background:#fbbc04"></span>
         <div class="left">
-          <img src="logo.png" class="icon-img" alt="Review">
+           <img src="logo.png" class="icon-img" alt="Reviews">
           <div class="label">
-            <strong>Γράψτε μια κριτική</strong>
+            <strong>Αξιολογήστε μας</strong>
             <span>Google Reviews</span>
           </div>
         </div>
-        <span class="pill">Rate Us</span>
+        <span class="pill">Link</span>
+      </a>
+
+      <div class="divider"></div>
+
+      <div class="section-title">Social Media</div>
+
+      <a class="btn" href="https://www.facebook.com/VetMedicaCrete" target="_blank" rel="noopener">
+        <span class="accent" style="background:#1877F2"></span>
+        <div class="left">
+            <img src="facebook.png" class="icon-img" alt="Facebook">
+            <div class="label">
+            <strong>Facebook</strong>
+            <span>VetMedicaCrete</span>
+            </div>
+        </div>
+        <span class="pill">Like</span>
+      </a>
+
+      <a class="btn" href="https://www.instagram.com/vet_medica_crete/" target="_blank" rel="noopener">
+        <span class="accent" style="background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);"></span>
+        <div class="left">
+            <img src="instagram.png" class="icon-img" alt="Instagram">
+            <div class="label">
+            <strong>Instagram</strong>
+            <span>@vet_medica_crete</span>
+            </div>
+        </div>
+        <span class="pill">Follow</span>
       </a>
 
     </div>
@@ -467,7 +468,6 @@ footer{
 <script>
 document.getElementById("y").textContent = new Date().getFullYear();
 
-/* Η JavaScript είναι ακριβώς όπως στο αρχείο σου */
 (function () {
   var url = encodeURIComponent(window.location.href);
   document.getElementById("hitCounter").src =
